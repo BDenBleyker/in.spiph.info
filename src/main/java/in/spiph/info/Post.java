@@ -36,6 +36,10 @@ public class Post {
     public void setContent(Object content) {
         this.content = content;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Post{" + "postTime=" + postTime + ", content=" + content + '}';
+    }
     
 }

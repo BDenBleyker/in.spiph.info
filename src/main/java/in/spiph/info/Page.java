@@ -5,8 +5,10 @@
  */
 package in.spiph.info;
 
+import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +21,11 @@ public class Page {
     String html;
 
     public Page(List<Post> posts, String html) {
-        this.posts = posts;
+        if (posts.toString().startsWith("[{postTime")) {
+            this.posts = Arrays.asList(new Gson().fromJson(posts.toString(), Post[].class));
+        } else {
+            this.posts = posts;
+        }
         this.html = html;
     }
 
