@@ -15,7 +15,7 @@ import in.spiph.info.Page;
  */
 public class PagePacket extends APacket {
 
-    public PagePacket(long id) {
+    public PagePacket(String id) {
         super(2, id + "");
     }
 
@@ -29,8 +29,7 @@ public class PagePacket extends APacket {
             Page page = (Page) getData();
             return "PagePacket{Posts: " + page.getPosts().size() + ", Html: " + page.getHtml() + '}';
         } else if (getData() instanceof String) {
-            long id = Long.valueOf((String) getData());
-            return "PagePacket{Request: " + id + "}";
+            return "PagePacket{Request: " + getData() + "}";
         } else if (getData() instanceof LinkedTreeMap) {
             setData(Page.valueOf((LinkedTreeMap) getData()));
             return toString();

@@ -14,12 +14,12 @@ import in.spiph.info.packets.base.APacket;
 public class IpPacket extends APacket {
 
     //Request
-    public IpPacket(long idRequest) {
+    public IpPacket(String idRequest) {
         super(1, idRequest + ";?");
     }
 
     //Response
-    public IpPacket(long idRequest, String ipResponse) {
+    public IpPacket(String idRequest, String ipResponse) {
         super(1, idRequest + ";" + ipResponse.replaceAll(";", ""));
     }
 
