@@ -18,11 +18,17 @@ public abstract class APacket implements Serializable {
     private final int type;
     private Object data;
     private String from = "Unknown";
+    private boolean isRequest;
 
     public APacket(int type, Object data) {
+        this(type, data, false);
+    }
+    
+    public APacket(int type, Object data, boolean isRequest) {
         this.id = nextId++;
         this.type = type;
         this.data = data;
+        this.isRequest = true;
     }
 
     @Override
@@ -52,6 +58,14 @@ public abstract class APacket implements Serializable {
 
     public void setFrom(String from) {
         this.from = from;
+    }
+
+    public boolean isRequest() {
+        return isRequest;
+    }
+
+    public void setIsRequest(boolean isRequest) {
+        this.isRequest = isRequest;
     }
 
 }

@@ -12,15 +12,16 @@ import in.spiph.info.packets.base.APacket;
  * @author Bennett.DenBleyker
  */
 public class IpPacket extends APacket {
-
+    public static final int TYPE_VALUE = 1;
+    
     //Request
     public IpPacket(String idRequest) {
-        super(1, idRequest + ";?");
+        super(TYPE_VALUE, idRequest + ";?", true);
     }
 
     //Response
     public IpPacket(String idRequest, String ipResponse) {
-        super(1, idRequest + ";" + ipResponse.replaceAll(";", ""));
+        super(TYPE_VALUE, idRequest + ";" + ipResponse.replaceAll(";", ""), false);
     }
 
     @Override

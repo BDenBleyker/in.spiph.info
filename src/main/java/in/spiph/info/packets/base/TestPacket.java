@@ -5,22 +5,21 @@
  */
 package in.spiph.info.packets.base;
 
-import in.spiph.info.packets.base.APacket;
-
 /**
  *
  * @author Bennett.DenBleyker
  */
 public class TestPacket extends APacket {
+    public static final int TYPE_VALUE = 0;
     
     //Request
     public TestPacket() {
-        super(0, "Request");
+        super(TYPE_VALUE, "Request", true);
     }
     
     //Response
     public TestPacket(String genericResponse) {
-        super(0, genericResponse);
+        super(TYPE_VALUE, genericResponse, false);
     }
 
     @Override

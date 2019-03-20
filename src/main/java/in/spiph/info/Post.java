@@ -13,28 +13,30 @@ import java.time.LocalDateTime;
  */
 public class Post {
     
-    LocalDateTime postTime;
-    Object content;
+    private static final String SPACE_VALUE = "%20";
     
-    public Post(LocalDateTime postTime, Object content) {
+    LocalDateTime postTime;
+    String content;
+    
+    public Post(LocalDateTime postTime, String content) {
         this.postTime = postTime;
-        this.content = content;
+        this.content = content.replaceAll(" ", SPACE_VALUE);
     }
 
     public LocalDateTime getPostTime() {
         return postTime;
     }
 
-    public Object getContent() {
-        return content;
+    public String getContent() {
+        return content.replaceAll(SPACE_VALUE, " ");
     }
 
     public void setPostTime(LocalDateTime postTime) {
         this.postTime = postTime;
     }
 
-    public void setContent(Object content) {
-        this.content = content;
+    public void setContent(String content) {
+        this.content = content.replaceAll(" ", SPACE_VALUE);
     }
 
     @Override
